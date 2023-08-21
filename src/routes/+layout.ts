@@ -3,7 +3,8 @@ import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte';
 // bloks
 import Feature from '../components/storyblok/Feature.svelte';
 import Grid from '../components/storyblok/Grid.svelte';
-import Page from '../components/storyblok/Page.svelte';
+import Page from '../components/storyblok/pages/Page.svelte';
+import PhotoGrid from '../components/storyblok/pages/PhotoGrid.svelte';
 import Teaser from '../components/storyblok/Teaser.svelte';
 import Image from '../components/storyblok/Image.svelte';
 
@@ -17,7 +18,8 @@ export async function load() {
 			grid: Grid,
 			page: Page,
 			teaser: Teaser,
-			Image
+			Image,
+			PhotoGrid
 		},
 		apiOptions: {
 			https: true

@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { storyblokEditable } from '@storyblok/svelte';
+	// components
+	import ImageCard from '../shared/media/ImageCard.svelte';
+
 	export let blok: {
 		image: {
 			filename: string;
@@ -8,9 +11,15 @@
 	};
 </script>
 
-<div
-	use:storyblokEditable={blok}
-	class="w-full bg-[#f7f6fd] rounded-[5px] text-center overflow-hidden"
->
-	<img src={blok.image.filename} alt={blok.image.alt} class="w-full h-48 xl:h-72 object-cover" />
+<div use:storyblokEditable={blok}>
+	<ImageCard
+		src={blok.image.filename + '/m/fit-in/200x200/filters:fill(ffffff)'}
+		alt={blok.image.alt}
+	/>
 </div>
+
+<style>
+	.img {
+		border: 1px solid black;
+	}
+</style>
