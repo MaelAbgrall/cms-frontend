@@ -2,14 +2,9 @@
 
 ## 1
 
-- Images
-- Navbar (photo)
-- basic CSS
-- text & title element
 - story lists (gallery & portfolio)
-- airbnb eslint
-- precommit hooks
-- SEO fields
+- semi-clear navbar
+- scrollbar
 
 ## 2
 
@@ -24,7 +19,11 @@
 - Blog navbar
 - Blog bloks
 - Services pages
+- Instragram like grid -> click to go to anchor scoller
 
 ## 4
 
-- Favicon
+- mobile design
+- mobile images (no popup)
+- og: image (in all pages)
+- airbnb eslint

@@ -1,10 +1,10 @@
 // libs
 import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte';
 // bloks
+import PhotoGrid from '../components/storyblok/pages/PhotoGrid.svelte';
 import Feature from '../components/storyblok/Feature.svelte';
 import Grid from '../components/storyblok/Grid.svelte';
 import Page from '../components/storyblok/pages/Page.svelte';
-import PhotoGrid from '../components/storyblok/pages/PhotoGrid.svelte';
 import Teaser from '../components/storyblok/Teaser.svelte';
 import Image from '../components/storyblok/Image.svelte';
 

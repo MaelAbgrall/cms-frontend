@@ -1,21 +1,18 @@
 <header class="navbar">
 	<div class="container h-full mx-auto flex items-center justify-between">
 		<a href="/">
-			<h1 class="title">Mael Abgrall</h1>
+			<div class="title">Mael Abgrall</div>
 		</a>
 		<nav>
 			<ul class="flex space-x-8 text-lg">
 				<li class="hover:text-[#50b0ae]">
-					<a href="/blog"> Portfolio </a>
+					<a href="/gallery"> Gallery </a>
 				</li>
-				<li class="hover:text-[#50b0ae]">
-					<a href="/blog"> Gallery </a>
-				</li>
-				<li class="hover:text-[#50b0ae]">
+				<!-- <li class="hover:text-[#50b0ae]">
 					<a href="/"> Services </a>
-				</li>
+				</li> -->
 				<li class="hover:text-[#50b0ae]">
-					<a href="/about"> Contact </a>
+					<a href="/about"> About </a>
 				</li>
 			</ul>
 		</nav>
