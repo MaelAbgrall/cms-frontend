@@ -4,11 +4,10 @@ import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte';
 import PhotoGrid from '../components/storyblok/pages/PhotoGrid.svelte';
 import Feature from '../components/storyblok/Feature.svelte';
 import Grid from '../components/storyblok/Grid.svelte';
-import Page from '../components/storyblok/pages/Page.svelte';
 import Teaser from '../components/storyblok/Teaser.svelte';
 import Image from '../components/storyblok/Image.svelte';
+import GalleryList from '../components/storyblok/singleUse/GalleryList.svelte';
 
-/** @type {import('./$types').LayoutLoad} */
 export async function load() {
 	storyblokInit({
 		accessToken: 'FCQswmgOewFBct16N7P0xAtt',
@@ -16,10 +15,10 @@ export async function load() {
 		components: {
 			feature: Feature,
 			grid: Grid,
-			page: Page,
 			teaser: Teaser,
 			Image,
-			PhotoGrid
+			PhotoGrid,
+			GalleryList
 		},
 		apiOptions: {
 			https: true

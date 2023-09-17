@@ -1,3 +1,5 @@
+import type { story } from '../../types/storyblok';
+
 /** @type {import('./$types').PageLoad} */
 export async function load({ params, parent }) {
 	const { storyblokApi } = await parent();
@@ -8,10 +10,12 @@ export async function load({ params, parent }) {
 	} else {
 		path += 'home';
 	}
-	const dataStory = await storyblokApi.get(path, {
+
+	const res = await storyblokApi.get(path, {
 		version: 'draft'
 	});
+
 	return {
-		story: dataStory.data.story
+		story: res.data.story as story
 	};
 }
