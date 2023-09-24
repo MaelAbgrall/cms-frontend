@@ -16,29 +16,25 @@ theming:
 
 ## 1
 
-- image list
-
-## 2
+- Blog images
+- Blog bullet points
+- Blog links
+- blog post
 
 - eslint + attention aux fichiers déjà présents (verify the trailing comma works)
-- remove 'draft' in +page.ts
-- SEO social tags on gallery
-- theme switch depending on website
-- Clean bloks & files
-- About / contact page + form submission check
-- footer
-- term of use / disclaimer
-- deploy on netlify
-
-## 3
-
 - Blog navbar
 - Blog bloks
 - Author component (automatic on blogs)
-- Services pages
-- Instragram like grid -> click to go to anchor scoller
 
-## 4
+- remove 'draft' in +page.ts
+- Clean bloks & files
+- deploy on netlify
+
+- finish the home page for pictures
+- image list
+- Instragram like grid -> click to go to anchor scoller
+- Services pages
+- form submission check (about / contact) + edit main page description based on the one from Johan
 
 - mobile design
 - mobile images (no popup)

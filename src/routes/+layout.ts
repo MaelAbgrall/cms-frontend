@@ -5,6 +5,7 @@ import imageList from '../components/storyblok/media/imageList.svelte';
 import Button from '../components/storyblok/btns/Button.svelte';
 import GalleryList from '../components/storyblok/singleUse/GalleryList.svelte';
 import Hero from '../components/storyblok/singleUse/Hero.svelte';
+import RichText from '../components/storyblok/media/RichText.svelte';
 
 export async function load() {
 	storyblokInit({
@@ -14,7 +15,8 @@ export async function load() {
 			Button,
 			GalleryList,
 			Hero,
-			imageList
+			imageList,
+			RichText
 		},
 		apiOptions: {
 			https: true

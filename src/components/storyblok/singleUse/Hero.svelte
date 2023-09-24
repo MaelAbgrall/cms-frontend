@@ -2,15 +2,12 @@
 	import { StoryblokComponent, renderRichText, storyblokEditable } from '@storyblok/svelte';
 	// components
 	import EmphasizedText from '../../shared/text/EmphasizedText.svelte';
-	import type { SBImage } from '../../../types/storyblok';
 
 	export let blok: {
 		emphasizedText: string;
 		links: any;
 		additionalText: any;
 	};
-	export let description: string;
-	export let image: SBImage;
 
 	$: resolvedRichText = renderRichText(blok.additionalText);
 </script>
@@ -22,7 +19,6 @@
 		<EmphasizedText text={blok.emphasizedText} colorOverride="#dec267" />
 		<!-- <EmphasizedText text="engineer | founder | photographer" /> -->
 	{/if}
-	<p>{description}</p>
 	<p>{@html resolvedRichText}</p>
 	<div use:storyblokEditable={blok.links} class="btns">
 		{#each blok.links as link}
@@ -45,11 +41,13 @@
 		justify-content: center;
 		margin: auto;
 		color: white;
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 		@apply max-w-prose;
 	}
 
 	.btns {
 		color: var(--color);
+		text-shadow: none;
 		display: flex;
 		gap: 1rem;
 	}

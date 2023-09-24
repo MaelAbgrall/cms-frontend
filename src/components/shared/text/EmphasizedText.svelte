@@ -16,6 +16,7 @@
 		gap: 0.7rem;
 		padding: 1rem;
 		width: 100%;
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 	}
 	.classy-bar > p {
 		flex-shrink: 0;
@@ -29,5 +30,6 @@
 		height: 0.1rem;
 		width: 100%;
 		border-radius: 1rem;
+		box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 	}
 </style>

@@ -22,7 +22,6 @@
 	// if (PUBLIC_BASE_URL.includes('photo')) {
 	// 	document.documentElement.setAttribute('data-theme', 'photography');
 	// }
-	console.log(data.story);
 </script>
 
 <Head {title} {description} {url} {image} />
@@ -45,8 +44,6 @@
 
 		{#if data.story.content.pageType === 'page'}
 			<div class="container mx-auto">
-				<h1>{data.story.name}</h1>
-				<p>{data.story.content.description}</p>
 				<div use:storyblokEditable={data.story.content.body}>
 					{#each data.story.content.body as blok}
 						<StoryblokComponent {blok} />
@@ -62,7 +59,7 @@
 				style="background-image: url({image});"
 			>
 				{#each data.story.content.body as blok}
-					<StoryblokComponent {blok} {description} />
+					<StoryblokComponent {blok} />
 				{/each}
 			</div>
 		{/if}
@@ -74,5 +71,8 @@
 		min-height: 100%;
 		display: flex;
 		align-items: center;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 	}
 </style>
