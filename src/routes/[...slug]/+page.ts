@@ -1,4 +1,4 @@
-import type { story } from '../../types/storyblok';
+import type { Story } from '../../types/storyblok';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params, parent }) {
@@ -16,6 +16,6 @@ export async function load({ params, parent }) {
 	});
 
 	return {
-		story: res.data.story as story
+		story: res.data.story as Story
 	};
 }

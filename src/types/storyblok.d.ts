@@ -1,6 +1,4 @@
-import type { SbBlokData } from '@storyblok/svelte';
-
-export type story = {
+export type Story = {
 	id: number;
 	uuid: string;
 	/**
@@ -30,17 +28,25 @@ export type story = {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		body: any;
 		description: string;
-		image: {
-			filename: string;
-			alt: string | null;
-			title: string | null;
-		};
+		image: SBImage;
+		pageType: 'blog' | 'hero' | 'page';
 	};
 	/**
 	 * Position in the folder
 	 */
 	position: number;
 	tag_list: string[];
+};
+
+export type SBImage = {
+	filename: string;
+	alt: string | null;
+	title: string | null;
+};
+
+export type SBLink = {
+	cached_url: string;
+	url: string;
 };
 
 export type APIStoryReturn = {

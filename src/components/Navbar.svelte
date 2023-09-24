@@ -1,4 +1,8 @@
-<header class="navbar">
+<script lang="ts">
+	import { page } from '$app/stores';
+</script>
+
+<header class="navbar {$page.url.pathname === '/' ? 'transparent' : ''}">
 	<div class="container h-full mx-auto flex items-center justify-between">
 		<a href="/">
 			<div class="title">Mael Abgrall</div>
@@ -18,7 +22,9 @@
 		</nav>
 	</div>
 </header>
-<div class="nav-spacer" />
+{#if $page.url.pathname !== '/'}
+	<div class="nav-spacer" />
+{/if}
 
 <style>
 	.nav-spacer {
@@ -26,7 +32,7 @@
 				Push back the content for the same amount as the navbar height
 				this is due to it being "fixed"
 		*/
-		height: 3rem;
+		min-height: 3rem;
 	}
 
 	.navbar {
@@ -38,10 +44,18 @@
 		background-color: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(5px);
 		height: 3rem;
+		box-shadow: 1px 2px 4px #aaaaaa50;
+	}
+
+	.transparent {
+		background-color: transparent;
+		backdrop-filter: none;
+		box-shadow: none;
+		color: white;
 	}
 
 	.title {
-		font-family: 'Caveat Brush', cursive;
+		font-family: 'High Summit', 'Caveat Brush', cursive;
 		@apply text-3xl;
 	}
 
