@@ -16,15 +16,11 @@ theming:
 
 ## 1
 
-- Blog images
-- Blog bullet points
-- Blog links
-- blog post
+- blog post author
+- author data (use the about page & create a special about page)
 
 - eslint + attention aux fichiers déjà présents (verify the trailing comma works)
 - Blog navbar
-- Blog bloks
-- Author component (automatic on blogs)
 
 - remove 'draft' in +page.ts
 - Clean bloks & files
@@ -42,3 +38,4 @@ theming:
 - mobile hero image optimisation https://www.webfx.com/blog/web-design/responsive-background-image/
 - airbnb eslint
 - try to make the story list SSR
+- filter blogs by tag (+ link on blog posts)
