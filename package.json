@@ -15,6 +15,7 @@
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/kit": "^1.25.0",
 		"@tailwindcss/typography": "^0.5.10",
+		"@types/node": "^20.8.3",
 		"@typescript-eslint/eslint-plugin": "^6.7.0",
 		"@typescript-eslint/parser": "^6.7.0",
 		"@vitejs/plugin-basic-ssl": "^1.0.1",

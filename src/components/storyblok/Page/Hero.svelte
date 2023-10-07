@@ -2,6 +2,7 @@
   import { StoryblokComponent, renderRichText, storyblokEditable } from '@storyblok/svelte';
   // components
   import EmphasizedText from '../../shared/text/EmphasizedText.svelte';
+  import { PUBLIC_BASE_URL } from '$env/static/public';
 
   export let blok: {
     emphasizedText: string;
@@ -16,7 +17,11 @@
   <h1 class="hero-title">Mael Abgrall</h1>
 
   {#if blok.emphasizedText}
-    <EmphasizedText text={blok.emphasizedText} colorOverride="#dec267" shadow={true} />
+    <EmphasizedText
+      text={blok.emphasizedText}
+      colorOverride={PUBLIC_BASE_URL.includes('blog') ? 'white' : '#dec267'}
+      shadow={true}
+    />
     <!-- <EmphasizedText text="engineer | founder | photographer" /> -->
   {/if}
   <p>{@html resolvedRichText}</p>
@@ -45,10 +50,14 @@
     @apply max-w-prose;
   }
 
+  p {
+    @apply container;
+  }
+
   .btns {
     color: var(--color);
     text-shadow: none;
-    display: flex;
     gap: 1rem;
+    @apply grid grid-cols-3;
   }
 </style>

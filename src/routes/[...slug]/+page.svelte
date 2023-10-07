@@ -46,7 +46,7 @@
       <div
         use:storyblokEditable={data.story.content.body}
         class="hero"
-        style="background-image: url({image});"
+        style="background-image: url({data.story.content.image.filename}/m/1920x0);"
       >
         {#each data.story.content.body as blok}
           <StoryblokComponent {blok} />

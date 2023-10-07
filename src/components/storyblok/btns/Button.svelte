@@ -16,8 +16,9 @@
     background-color: var(--foreground);
     padding: 0.3rem 0.7rem;
     border-radius: 5px;
-    box-shadow: 1px 2px 4px #aaaaaa50;
-    transition: transform 0.25s ease-in-out;
+    /* box-shadow: 1px 2px 4px #aaaaaa50; */
+    transition: transform 0.1s ease-in-out;
+    text-align: center;
   }
 
   .btn:hover {

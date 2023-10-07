@@ -1,6 +1,10 @@
 <script lang="ts">
-  import { renderRichText } from '@storyblok/svelte';
-  import type { SBImage } from '../../../types/storyblok';
+  // libs
+  import { onMount } from 'svelte';
+  import { renderRichText, useStoryblokApi } from '@storyblok/svelte';
+  // types
+  import type { Story, SBImage } from '../../../types/storyblok';
+  // components
   import RichText from '../../shared/media/RichText.svelte';
   import EmphasizedText from '../../shared/text/EmphasizedText.svelte';
 
@@ -13,6 +17,15 @@
   export let blok: {
     content: any;
   };
+
+  let aboutData: Story | undefined;
+  onMount(async () => {
+    const storyblokApi = useStoryblokApi();
+    const { data }: { data: { story: Story } } = await storyblokApi.get('cdn/stories/about', {
+      version: 'draft',
+    });
+    aboutData = data.story;
+  });
 
   $: resolvedRichText = renderRichText(blok.content);
 </script>
@@ -36,7 +49,13 @@
     <div class="tag">#my tag</div>
   </div>
   <EmphasizedText text="about me" />
-  <div class="author"></div>
+  <div class="author">
+    <img src={aboutData?.content.image.filename} alt={aboutData?.content.image.alt} />
+    <div class="author-meta">
+      <p>Mael Abgrall</p>
+      <p>{aboutData?.content.description}</p>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -44,7 +63,6 @@
   .blog-footer {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     padding: 1rem 0;
     margin: auto;
     @apply max-w-prose;
@@ -79,5 +97,18 @@
     margin: auto;
     border: 1px solid #61656b31;
     box-shadow: 5px 5px 10px 0px #61656b31;
+  }
+
+  .author {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .author > img {
+    max-width: 150px;
+  }
+  .author-meta {
+    max-width: 46ch;
   }
 </style>

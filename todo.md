@@ -2,7 +2,6 @@
 
 theming:
 
-- use light colors (not pure white)
 - Use massive size images, smaller one when using galleries
 
 - overall, use https://www.thiswildidea.com/ for general ideas
@@ -16,26 +15,25 @@ theming:
 
 ## 1
 
-- blog post author
-- author data (use the about page & create a special about page)
-
-- eslint + attention aux fichiers déjà présents (verify the trailing comma works)
-- Blog navbar
+- blog list
+- limit about picture size in blog description
 
 - remove 'draft' in +page.ts
-- Clean bloks & files
+- replace draft tokens
+- remove bridge on prod
 - deploy on netlify
+- Clean bloks & files
+- eslint + attention aux fichiers déjà présents (verify the trailing comma works)
+- airbnb eslint
 
+- filter blogs by tag (+ link on blog posts)
 - finish the home page for pictures
 - image list
 - Instragram like grid -> click to go to anchor scoller
 - Services pages
 - form submission check (about / contact) + edit main page description based on the one from Johan
 
-- mobile design
 - mobile images (no popup)
 - og: image (in all pages)
 - mobile hero image optimisation https://www.webfx.com/blog/web-design/responsive-background-image/
-- airbnb eslint
 - try to make the story list SSR
-- filter blogs by tag (+ link on blog posts)
