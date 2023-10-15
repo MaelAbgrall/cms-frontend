@@ -18,8 +18,8 @@
   let title = data.story.name;
   let description = data.story.content.description;
   let url = data.story.full_slug.includes('home')
-    ? $page.url.host + '/' + data.story.full_slug
-    : $page.url.host + '/';
+    ? $page.url.host + '/'
+    : $page.url.host + '/' + data.story.full_slug;
   let image = data.story.content.image.filename;
 </script>
 
