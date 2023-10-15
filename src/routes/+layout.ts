@@ -14,7 +14,7 @@ import { PUBLIC_PHOTO_TOKEN, PUBLIC_BLOG_TOKEN } from '$env/static/public';
 export async function load({ url }) {
   let token = PUBLIC_BLOG_TOKEN ?? PUBLIC_PHOTO_TOKEN;
 
-  if (url.href.includes('photo') && PUBLIC_PHOTO_TOKEN) {
+  if (url.href.includes('photo')) {
     token = PUBLIC_PHOTO_TOKEN;
   }
 
