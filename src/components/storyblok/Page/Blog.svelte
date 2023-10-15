@@ -7,6 +7,9 @@
   // components
   import RichText from '../../shared/media/RichText.svelte';
   import EmphasizedText from '../../shared/text/EmphasizedText.svelte';
+  // services
+  import { getReadableDate } from '../../../services/date';
+  import { PUBLIC_VERSION_STATE } from '$env/static/public';
 
   export let title: string;
   export let description: string;
@@ -19,12 +22,17 @@
   };
 
   let aboutData: Story | undefined;
+  let published: string | null;
+  let first_published: string | null;
   onMount(async () => {
     const storyblokApi = useStoryblokApi();
     const { data }: { data: { story: Story } } = await storyblokApi.get('cdn/stories/about', {
-      version: 'draft',
+      version: PUBLIC_VERSION_STATE as 'draft' | 'published',
     });
     aboutData = data.story;
+
+    published = await getReadableDate(published_at);
+    first_published = await getReadableDate(first_published_at);
   });
 
   $: resolvedRichText = renderRichText(blok.content);
@@ -34,23 +42,29 @@
   <h1>{title}</h1>
   <p>{description}</p>
   <div class="date">
-    <div>Posted on {first_published_at}</div>
-    <div>Updated on {published_at}</div>
+    {#if published !== first_published}
+      <div>Updated on {published}</div>
+    {/if}
+    <div>Posted on {first_published}</div>
   </div>
-  <img src={image.filename} alt={image.alt} />
+  <img src="{image.filename}/m/0x800" alt={image.alt} />
 </div>
 <div class="blog-content">
   <RichText {resolvedRichText} />
 </div>
 <div class="blog-footer">
   <div class="tags">
-    <div class="tag">#my tag</div>
-    <div class="tag">#my tag</div>
-    <div class="tag">#my tag</div>
+    {#if tags.length === 0}
+      <p>Oops, I forgot to put tags...</p>
+    {:else}
+      {#each tags as tag}
+        <a href="/blog?tag={tag}" class="tag">#{tag}</a>
+      {/each}
+    {/if}
   </div>
   <EmphasizedText text="about me" />
   <div class="author">
-    <img src={aboutData?.content.image.filename} alt={aboutData?.content.image.alt} />
+    <img src="{aboutData?.content.image.filename}/m/300x0" alt={aboutData?.content.image.alt} />
     <div class="author-meta">
       <p>Mael Abgrall</p>
       <p>{aboutData?.content.description}</p>

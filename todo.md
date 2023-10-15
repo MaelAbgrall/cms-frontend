@@ -15,23 +15,19 @@ theming:
 
 ## 1
 
-- blog list
-- limit about picture size in blog description
-
-- remove 'draft' in +page.ts
-- replace draft tokens
-- remove bridge on prod
 - deploy on netlify
 - Clean bloks & files
 - eslint + attention aux fichiers déjà présents (verify the trailing comma works)
 - airbnb eslint
 
-- filter blogs by tag (+ link on blog posts)
-- finish the home page for pictures
+- remove bridge on prod
+- filter blogs by tag
+- finish the home page for list of best pictures
 - image list
 - Instragram like grid -> click to go to anchor scoller
 - Services pages
 - form submission check (about / contact) + edit main page description based on the one from Johan
+- clean/remove prose logs (or prose altogether)
 
 - mobile images (no popup)
 - og: image (in all pages)
