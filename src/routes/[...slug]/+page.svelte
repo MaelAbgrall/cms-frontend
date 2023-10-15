@@ -14,7 +14,9 @@
 
   let title = data.story.name;
   let description = data.story.content.description;
-  let url = PUBLIC_BASE_URL + '/' + data.story.full_slug;
+  let url = data.story.full_slug.includes('home')
+    ? PUBLIC_BASE_URL + '/' + data.story.full_slug
+    : PUBLIC_BASE_URL + '/';
   let image = data.story.content.image.filename;
 </script>
 

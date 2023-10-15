@@ -9,11 +9,17 @@ import Hero from '../components/storyblok/Page/Hero.svelte';
 import Blog from '../components/storyblok/Page/Blog.svelte';
 import BlogList from '../components/storyblok/Page/BlogList.svelte';
 // env
-import { PUBLIC_ACCESS_TOKEN } from '$env/static/public';
+import { PUBLIC_PHOTO_TOKEN, PUBLIC_BLOG_TOKEN } from '$env/static/public';
 
-export async function load() {
+export async function load({ url }) {
+  let token = PUBLIC_BLOG_TOKEN ?? PUBLIC_PHOTO_TOKEN;
+
+  if (url.href.includes('photo') && PUBLIC_PHOTO_TOKEN) {
+    token = PUBLIC_PHOTO_TOKEN;
+  }
+
   storyblokInit({
-    accessToken: PUBLIC_ACCESS_TOKEN,
+    accessToken: token,
     use: [apiPlugin],
     components: {
       Button,

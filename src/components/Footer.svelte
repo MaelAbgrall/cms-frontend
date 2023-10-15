@@ -1,9 +1,9 @@
 <script>
-  import { PUBLIC_PROJECT } from '$env/static/public';
+  import { page } from '$app/stores';
 </script>
 
 <div class="footer">
-  {#if PUBLIC_PROJECT.includes('photo')}
+  {#if $page.url.toString().includes('photo')}
     <div class="cols">
       <div>
         <p>Mael Abgrall &copy {new Date().getFullYear()}</p>
