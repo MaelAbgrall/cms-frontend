@@ -1,9 +1,9 @@
 <script>
-  import { PUBLIC_BASE_URL } from '$env/static/public';
+  import { PUBLIC_PROJECT } from '$env/static/public';
 </script>
 
 <div class="footer">
-  {#if PUBLIC_BASE_URL.includes('photo')}
+  {#if PUBLIC_PROJECT.includes('photo')}
     <div class="cols">
       <div>
         <p>Mael Abgrall &copy {new Date().getFullYear()}</p>

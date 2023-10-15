@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { PUBLIC_BASE_URL } from '$env/static/public';
+  import { PUBLIC_PROJECT } from '$env/static/public';
 
   let displayMenu = false;
   function toggleMenu() {
@@ -22,7 +22,7 @@
           <a href="/" on:click={toggleMenu}> Home </a>
           <button class="close-btn" on:click={toggleMenu}>X</button>
         </li>
-        {#if PUBLIC_BASE_URL.includes('photo')}
+        {#if PUBLIC_PROJECT.includes('photo')}
           <li>
             <a href="/gallery" on:click={toggleMenu}> Gallery </a>
           </li>

@@ -15,7 +15,6 @@ theming:
 
 ## 1
 
-- deploy on netlify
 - Clean bloks & files
 - eslint + attention aux fichiers déjà présents (verify the trailing comma works)
 - airbnb eslint
@@ -28,6 +27,7 @@ theming:
 - Services pages
 - form submission check (about / contact) + edit main page description based on the one from Johan
 - clean/remove prose logs (or prose altogether)
+- deploy editor version on netlify
 
 - mobile images (no popup)
 - og: image (in all pages)
