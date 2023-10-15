@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { PUBLIC_BLOG_TOKEN } from '$env/static/public';
 
   let displayMenu = false;
   function toggleMenu() {
@@ -21,7 +22,7 @@
           <a href="/" on:click={toggleMenu}> Home </a>
           <button class="close-btn" on:click={toggleMenu}>X</button>
         </li>
-        {#if $page.url.toString().includes('photo')}
+        {#if $page.url.toString().includes('photo') || PUBLIC_BLOG_TOKEN === 'undefined'}
           <li>
             <a href="/gallery" on:click={toggleMenu}> Gallery </a>
           </li>

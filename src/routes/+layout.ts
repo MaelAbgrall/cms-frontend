@@ -12,9 +12,9 @@ import BlogList from '../components/storyblok/Page/BlogList.svelte';
 import { PUBLIC_PHOTO_TOKEN, PUBLIC_BLOG_TOKEN } from '$env/static/public';
 
 export async function load({ url }) {
-  let token = PUBLIC_BLOG_TOKEN ?? PUBLIC_PHOTO_TOKEN;
+  let token = PUBLIC_BLOG_TOKEN;
 
-  if (url.href.includes('photo')) {
+  if (url.href.includes('photo') || PUBLIC_BLOG_TOKEN === 'undefined') {
     token = PUBLIC_PHOTO_TOKEN;
   }
 

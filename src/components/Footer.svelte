@@ -1,9 +1,10 @@
 <script>
   import { page } from '$app/stores';
+  import { PUBLIC_BLOG_TOKEN } from '$env/static/public';
 </script>
 
 <div class="footer">
-  {#if $page.url.toString().includes('photo')}
+  {#if $page.url.toString().includes('photo') || PUBLIC_BLOG_TOKEN === 'undefined'}
     <div class="cols">
       <div>
         <p>Mael Abgrall &copy {new Date().getFullYear()}</p>

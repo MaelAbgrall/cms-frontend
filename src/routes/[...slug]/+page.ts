@@ -1,10 +1,8 @@
 // types
 import type { Story } from '../../types/storyblok';
-// env
-import { PUBLIC_VERSION_STATE } from '$env/static/public';
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ params, parent }) {
+export async function load({ params, parent, url }) {
   const { storyblokApi } = await parent();
   let slug = params.slug;
   let path = 'cdn/stories/';
@@ -13,9 +11,8 @@ export async function load({ params, parent }) {
   } else {
     path += 'home';
   }
-
   const res = await storyblokApi.get(path, {
-    version: PUBLIC_VERSION_STATE as 'draft' | 'published',
+    version: url.href.includes('editor') || url.href.includes('localhost') ? 'draft' : 'published',
   });
 
   return {

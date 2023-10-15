@@ -4,8 +4,13 @@
   import { useStoryblokApi, storyblokEditable } from '@storyblok/svelte';
   // types
   import type { APIStoryReturn, Story } from '../../../types/storyblok';
-  // env
-  import { PUBLIC_VERSION_STATE } from '$env/static/public';
+  // store
+  import { page } from '$app/stores';
+
+  let version: 'published' | 'draft' = 'published';
+  if ($page.url.hostname.includes('localhost') || $page.url.hostname.includes('editor')) {
+    version = 'draft';
+  }
 
   export let title: string;
   export let description: string;
@@ -13,7 +18,7 @@
   onMount(async () => {
     const storyblokApi = useStoryblokApi();
     const { data }: { data: APIStoryReturn } = await storyblokApi.get('cdn/stories', {
-      version: PUBLIC_VERSION_STATE as 'draft' | 'published',
+      version: version,
       starts_with: 'gallery',
       is_startpage: false,
     });

@@ -9,7 +9,8 @@
   import EmphasizedText from '../../shared/text/EmphasizedText.svelte';
   // services
   import { getReadableDate } from '../../../services/date';
-  import { PUBLIC_VERSION_STATE } from '$env/static/public';
+  // store
+  import { page } from '$app/stores';
 
   export let title: string;
   export let description: string;
@@ -21,13 +22,18 @@
     content: any;
   };
 
+  let version: 'published' | 'draft' = 'published';
+  if ($page.url.hostname.includes('localhost') || $page.url.hostname.includes('editor')) {
+    version = 'draft';
+  }
+
   let aboutData: Story | undefined;
   let published: string | null;
   let first_published: string | null;
   onMount(async () => {
     const storyblokApi = useStoryblokApi();
     const { data }: { data: { story: Story } } = await storyblokApi.get('cdn/stories/about', {
-      version: PUBLIC_VERSION_STATE as 'draft' | 'published',
+      version: version,
     });
     aboutData = data.story;
 

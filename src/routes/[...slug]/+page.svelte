@@ -1,9 +1,12 @@
 <script lang="ts">
+  // libs
   import { Head } from 'svead';
-  import { PUBLIC_BASE_URL } from '$env/static/public';
   import { onMount } from 'svelte';
   import { useStoryblokBridge, StoryblokComponent, storyblokEditable } from '@storyblok/svelte';
+  // types
   import type { Story } from '../../types/storyblok';
+  // store
+  import { page } from '$app/stores';
 
   export let data: { story: Story };
   onMount(() => {
@@ -15,8 +18,8 @@
   let title = data.story.name;
   let description = data.story.content.description;
   let url = data.story.full_slug.includes('home')
-    ? PUBLIC_BASE_URL + '/' + data.story.full_slug
-    : PUBLIC_BASE_URL + '/';
+    ? $page.url.host + '/' + data.story.full_slug
+    : $page.url.host + '/';
   let image = data.story.content.image.filename;
 </script>
 

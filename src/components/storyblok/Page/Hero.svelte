@@ -4,6 +4,7 @@
   import EmphasizedText from '../../shared/text/EmphasizedText.svelte';
   // stores
   import { page } from '$app/stores';
+  import { PUBLIC_BLOG_TOKEN } from '$env/static/public';
 
   export let blok: {
     emphasizedText: string;
@@ -20,7 +21,9 @@
   {#if blok.emphasizedText}
     <EmphasizedText
       text={blok.emphasizedText}
-      colorOverride={$page.url.toString().includes('photo') ? '#dec267' : 'white'}
+      colorOverride={$page.url.toString().includes('photo') || PUBLIC_BLOG_TOKEN === 'undefined'
+        ? '#dec267'
+        : 'white'}
       shadow={true}
     />
     <!-- <EmphasizedText text="engineer | founder | photographer" /> -->

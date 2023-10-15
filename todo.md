@@ -15,6 +15,7 @@ theming:
 
 ## 1
 
+- load fonts earlier in the app loading pipeline
 - Clean bloks & files
 - eslint + attention aux fichiers déjà présents (verify the trailing comma works)
 - airbnb eslint
